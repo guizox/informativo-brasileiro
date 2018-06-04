@@ -1,0 +1,56 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+  <div class="row" style="margin-top:20px">
+      <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        <fieldset>
+          <h2>Login Informativo Brasileirão</h2>
+          <hr class="colorgraph">
+          <div class="form-group">
+            <input 
+              type="email" 
+              [(ngModel)]="email"
+              class="form-control input-lg" 
+              placeholder="Email Address">
+          </div>
+          <div class="form-group">
+            <input 
+              type="password" 
+              [(ngModel)]="password" 
+              class="form-control input-lg" 
+              placeholder="Password">
+          </div>
+          <span class="button-checkbox">
+            <button type="button" class="btn" data-color="info">Remember Me</button>
+              <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
+            <button
+              class="btn btn-link pull-right" 
+              (click)="onForgotPassword()"
+            >
+                Forgot Password?
+            </button>
+          </span>
+          <hr class="colorgraph">
+          <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <input 
+                  type="submit"  
+                  class="btn btn-lg btn-success btn-block" 
+                  value="Enter"
+                  (click)="login()">
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <button 
+                class="btn btn-lg btn-primary btn-block"
+                (click)="onRegisterClick()"
+              >
+                  Register
+              </button>
+            </div>
+          </div>
+        </fieldset>
+    </div>
+</div>

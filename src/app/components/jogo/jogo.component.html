@@ -1,0 +1,14 @@
+<div style="background-color: aliceblue;opacity: 0.85; padding: 5%; text-align: center; border-radius: 15px;">
+  <div class="parent">
+    <app-time
+      [time]="jogo.time1"
+      class="children"></app-time>
+    <app-time
+      [time]="jogo.time2"
+      class="children"></app-time>
+  </div>
+  <h4>Local : {{ jogo.local }}</h4>
+  <h5>Data/Horario : {{jogo.data | date: 'dd/MM/yyyy'}} - {{jogo.horario  || 'Ainda não definido'}}</h5>
+
+  <h6>Estadio : {{ jogo.estadio }}</h6>
+</div>

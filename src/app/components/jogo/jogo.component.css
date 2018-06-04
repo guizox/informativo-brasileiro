@@ -1,0 +1,9 @@
+.parent {
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.children {
+    display: inline-block;
+    margin-left: 20px; 
+ }
