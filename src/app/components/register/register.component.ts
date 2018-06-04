@@ -25,6 +25,7 @@ export class RegisterComponent implements OnInit {
         }
       );
       window.localStorage.setItem('user', this.email);
+      document.location.reload();
     }
   }
 
