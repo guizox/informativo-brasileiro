@@ -10,24 +10,24 @@
           <h2>Login Informativo Brasileirão</h2>
           <hr class="colorgraph">
           <div class="form-group">
-            <input 
-              type="email" 
+            <input
+              type="email"
               [(ngModel)]="email"
-              class="form-control input-lg" 
+              class="form-control input-lg"
               placeholder="Email Address">
           </div>
           <div class="form-group">
-            <input 
-              type="password" 
-              [(ngModel)]="password" 
-              class="form-control input-lg" 
+            <input
+              type="password"
+              [(ngModel)]="password"
+              class="form-control input-lg"
               placeholder="Password">
           </div>
           <span class="button-checkbox">
             <button type="button" class="btn" data-color="info">Remember Me</button>
               <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
             <button
-              class="btn btn-link pull-right" 
+              class="btn btn-link pull-right"
               (click)="onForgotPassword()"
             >
                 Forgot Password?
@@ -36,14 +36,14 @@
           <hr class="colorgraph">
           <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6">
-                <input 
-                  type="submit"  
-                  class="btn btn-lg btn-success btn-block" 
+                <input
+                  type="submit"
+                  class="btn btn-lg btn-success btn-block"
                   value="Enter"
                   (click)="login()">
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
-              <button 
+              <button
                 class="btn btn-lg btn-primary btn-block"
                 (click)="onRegisterClick()"
               >
@@ -53,4 +53,31 @@
           </div>
         </fieldset>
     </div>
+    <app-alert
+      style="padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        display: grid;
+        width: 25%;
+        height: 15%;"
+      *ngIf="alertRenderUserNotFound"
+      [alertType]="'alert-danger'"
+      [header]="'Problema!'"
+      [conteudo]="'Usuário não encontrado, favor tente novamente!'">
+    </app-alert>
+    <app-alert
+      *ngIf="alertRenderEmptyFields"
+      style="padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        display: grid;
+        width: 25%;
+        height: 15%;"
+      [alertType]="'alert-danger'"
+      [header]="'Problema!'"
+      [conteudo]="'Por favor, preencha o email e a senha.'">
+    </app-alert>
+
 </div>

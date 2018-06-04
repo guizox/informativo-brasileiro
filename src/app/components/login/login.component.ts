@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   @Output() emitter = new EventEmitter();
   email: string = '';
   password: string = '';
+  alertRenderUserNotFound: boolean = false;
+  alertRenderEmptyFields: boolean = false;
 
   onForgotPassword() {
     this.forgotPasswordClicked = true;
@@ -34,7 +36,11 @@ export class LoginComponent implements OnInit {
 
   callBack(data){
     if (!JSON.parse(data._body)[0]){
-      alert('User not found, please try again');
+      this.alertRenderUserNotFound = true;
+      //'User not found, please try again';
+      setTimeout(()=>{
+        this.alertRenderUserNotFound = false;
+      }, 2000);
       return;
     }
     this.emitter.emit({
@@ -47,7 +53,11 @@ export class LoginComponent implements OnInit {
 
   login(){
     if (this.email === '' || this.password === '') {
-      alert('Please, fill the email and password field');
+      this.alertRenderEmptyFields = true;
+      //'Please, fill the email and password field';
+      setTimeout(()=>{
+        this.alertRenderEmptyFields = false;
+      }, 2000);
       return;
     }
     this.http.get(this.url + this.email + "&senha=" + this.password)

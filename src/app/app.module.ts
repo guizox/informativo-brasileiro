@@ -17,6 +17,7 @@ import { EquipesComponent } from './components/equipes/equipes.component';
 import { ClassificacaoComponent } from './components/classificacao/classificacao.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { LoadingComponent } from './components/loading/loading.component';
     EquipesComponent,
     ClassificacaoComponent,
     ChangePasswordComponent,
-    LoadingComponent
+    LoadingComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

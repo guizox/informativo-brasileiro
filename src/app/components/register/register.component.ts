@@ -14,31 +14,40 @@ export class RegisterComponent implements OnInit {
   nome: string = '';
   url: string = "http://yfipassword.000webhostapp.com/server/YFiPassword/php/UserService.php?metodo=registrar&email=";
   @Output() emitter = new EventEmitter;
-
+  alertRenderSuccess: boolean = false;
+  alertRenderError: boolean = false;
 
   callBack(data){
     if (JSON.parse(data._body)){
-      alert('Welcome to Lance a Lance!');
+      this.alertRenderSuccess = true;
       this.emitter.emit({
           home : true,
           user: this.email
         }
       );
       window.localStorage.setItem('user', this.email);
-      document.location.reload();
+      setTimeout(()=>{
+        this.alertRenderSuccess = false;
+        document.location.reload();
+      }, 2000);
+
     }
   }
 
   registerClick() {
     if (this.email === '' || this.password === '' || this.nome === '') {
-      alert('Please, fill the email and password and name fields');
-      return;
-    }
-    console.log(this.url + this.email + "&senha=" + this.password + "&nome_completo="+this.nome);
-    this.http.get(this.url + this.email + "&senha=" + this.password + "&nome_completo="+this.nome)
-    .subscribe(data => this.callBack(data)
+      this.alertRenderError = true;
+      setTimeout(()=>{
+        this.alertRenderError = false;
+        return;
+      },2000);
+    } else {
+      console.log(this.url + this.email + "&senha=" + this.password + "&nome_completo="+this.nome);
+      this.http.get(this.url + this.email + "&senha=" + this.password + "&nome_completo="+this.nome)
+      .subscribe(data => this.callBack(data)
 
-    );
+      );
+    }
   }
 
   onDestroyRegisterComponent() {

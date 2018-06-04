@@ -11,24 +11,29 @@ export class ChangePasswordComponent implements OnInit {
   email:string = localStorage.getItem("user");
   password: string;
   confirmPassword: string;
+  alertRender: boolean = false;
+  alertRenderError: boolean = false;
   url="http://yfipassword.000webhostapp.com/server/YFiPassword/php/UserService.php?metodo=update&email="
 
   callBack(data){
     if (data.status === 200){
-      alert('Senha Alterada com sucesso');
       localStorage.removeItem("user");
-      document.location.reload();
+      this.alertRender = true;
+      setTimeout(()=>{
+        document.location.reload();
+      }, 1500)
     }
   }
 
   changePassword(){
-    if (this.password !== "" && this.password.length > 7 && this.password == this.confirmPassword){
+    if (this.password !== "" && this.password && this.password == this.confirmPassword){
       console.log(this.url + this.email + "&senha=" + this.password);
-      this.http.get(this.url + this.email + "&senha=" + this.password).subscribe(data => this.callBack(data)
-
-      );
+      this.http.get(this.url + this.email + "&senha=" + this.password).subscribe(data => this.callBack(data));
     } else {
-      alert("Senhas sao diferentes, ou senha nao contem no minimo 8 caracteres. \nFavor confirmar a senha");
+      this.alertRenderError = true;
+      setTimeout(()=>{
+        this.alertRenderError = false;
+      },1500);
     }
   }
   constructor(private http : Http) { }

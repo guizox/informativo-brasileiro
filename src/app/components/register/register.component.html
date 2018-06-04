@@ -4,20 +4,20 @@
         <h2>Register</h2>
         <hr class="colorgraph">
         <div class="form-group">
-          <input type="text" 
-            class="form-control input-lg" 
+          <input type="text"
+            class="form-control input-lg"
             placeholder="Nome"
             [(ngModel)]="nome">
         </div>
         <div class="form-group">
-          <input type="email"  
-            class="form-control input-lg" 
+          <input type="email"
+            class="form-control input-lg"
             placeholder="Email Address"
             [(ngModel)]="email">
         </div>
         <div class="form-group">
           <input type="password"
-            class="form-control input-lg" 
+            class="form-control input-lg"
             placeholder="Password"
             [(ngModel)]="password">
         </div>
@@ -34,4 +34,32 @@
         </button>
       </div>
     </div>
+    <app-alert
+      style="padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        display: -ms-grid;
+        display: grid;
+        width: 100%;
+        height: 100px"
+      *ngIf="alertRenderSuccess"
+      [alertType]="'alert-success'"
+      [header]="'Bem vindo!'"
+      [conteudo]="'Você será redirecionado, em instantes!'">
+    </app-alert>
+    <app-alert
+      style="padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        display: -ms-grid;
+        display: grid;
+        width: 100%;
+        height: 100px"
+        *ngIf="alertRenderError"
+      [alertType]="'alert-danger'"
+      [header]="'Erro.'"
+      [conteudo]="'Favor preencher todos os campos'">
+    </app-alert>
 </section>
