@@ -17,10 +17,14 @@ export class RegisterComponent implements OnInit {
 
 
   callBack(data){
-    if (data.result){
+    if (JSON.parse(data._body)){
       alert('Welcome to Lance a Lance!');
-      window.localStorage.setItem('user', data[0]);
-      window.location.href = 'http://localhost/lancealance/todososjogos.php'
+      this.emitter.emit({
+          home : true,
+          user: this.email
+        }
+      );
+      window.localStorage.setItem('user', this.email);
     }
   }
 
@@ -31,7 +35,7 @@ export class RegisterComponent implements OnInit {
     }
     console.log(this.url + this.email + "&senha=" + this.password + "&nome_completo="+this.nome);
     this.http.get(this.url + this.email + "&senha=" + this.password + "&nome_completo="+this.nome)
-    .subscribe(data => this.callBack(<any>data.json)
+    .subscribe(data => this.callBack(data)
 
     );
   }

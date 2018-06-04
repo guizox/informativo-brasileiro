@@ -20,11 +20,11 @@ export class ForgetPasswordComponent implements OnInit {
   }
 
   callBack(data) {
-    if (!data[0]){
+    if (!JSON.parse(data._body)[0]){
       alert('Email not founded');
       return;
     }
-    this.password = data[0].senha
+    this.password = JSON.parse(data._body)[0].senha;
 
   }
 
@@ -34,7 +34,7 @@ export class ForgetPasswordComponent implements OnInit {
       return;
     }
     this.http.get(this.url + this.email)
-    .subscribe(data => this.callBack(<any>data.json)
+    .subscribe(data => this.callBack(data)
 
     );
   }

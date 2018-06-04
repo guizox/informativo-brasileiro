@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         user: data[0]
       }
     );
-    localStorage.setItem('user', data[0].email);
+    localStorage.setItem('user', JSON.parse(data._body)[0].email);
   }
 
   login(){

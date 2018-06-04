@@ -27,13 +27,13 @@ export class JogosDataComponent implements OnInit {
           time1 = parseInt(result.fases['2700'].jogos.id[id]['time1']),
           time2 = parseInt(result.fases['2700'].jogos.id[id]['time2']);
 
-        for (let j = 0; j < Object.keys(resp["equipes"]).length; j++){
-          let equipe = Object.keys(resp["equipes"])[j];
-          if (time1 == parseInt(resp["equipes"][equipe].id)){
-            time1 = resp["equipes"][equipe];
+        for (let j = 0; j < Object.keys(result["equipes"]).length; j++){
+          let equipe = Object.keys(result["equipes"])[j];
+          if (time1 == parseInt(result["equipes"][equipe].id)){
+            time1 = result["equipes"][equipe];
           }
-          if (time2 == parseInt(resp["equipes"][equipe].id)){
-            time2 = resp["equipes"][equipe];
+          if (time2 == parseInt(result["equipes"][equipe].id)){
+            time2 = result["equipes"][equipe];
           }
         }
 

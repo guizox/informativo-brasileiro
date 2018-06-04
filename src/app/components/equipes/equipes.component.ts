@@ -15,9 +15,10 @@ export class EquipesComponent implements OnInit {
   ngOnInit() {
     this.loading = true;
     this.gameSerivce.getAllGames().then((resp) => {
+      let result = resp.json();
       this.equipes = new Array();
-      for (let j = 0; j < Object.keys(resp["equipes"]).length; j++){
-        this.equipes.push(resp["equipes"][Object.keys(resp["equipes"])[j]]);
+      for (let j = 0; j < Object.keys(result["equipes"]).length; j++){
+        this.equipes.push(result["equipes"][Object.keys(result["equipes"])[j]]);
       }
       this.loading = false;
     });
