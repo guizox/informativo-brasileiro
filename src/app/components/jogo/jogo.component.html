@@ -1,4 +1,4 @@
-<div style="background-color: aliceblue;opacity: 0.85; padding: 5%; text-align: center; border-radius: 15px;">
+<div style="background-color: aliceblue;opacity: 0.95; padding: 5%; text-align: center; border-radius: 15px;">
   <div class="parent">
     <app-time
       [time]="jogo.time1"
@@ -7,8 +7,16 @@
       [time]="jogo.time2"
       class="children"></app-time>
   </div>
+  <h3 *ngIf="jogo.placar1">{{jogo.placar1}} X {{ jogo.placar2}}</h3>
+  <h3 *ngIf="!jogo.placar1">Placar não definido</h3>
   <h4>Local : {{ jogo.local }}</h4>
   <h5>Data/Horario : {{jogo.data | date: 'dd/MM/yyyy'}} - {{jogo.horario  || 'Ainda não definido'}}</h5>
-
   <h6>Estadio : {{ jogo.estadio }}</h6>
+  <a
+    class="btn btn-success"
+    style="opacity: 1 !important"
+    href="{{jogo['url-posjogo']}}"> Mais Informações
+  </a>
+
+
 </div>

@@ -3,8 +3,8 @@
 }
 .children {
     background-color: aliceblue;
-    opacity: 0.85; 
-    text-align: center; 
+    opacity: 0.95;
+    text-align: center;
     border-radius: 15px;
     padding: 2%;
 }
